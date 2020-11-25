@@ -1,0 +1,50 @@
+Réponses aux questions:
+
+1) La SDL2 est une bibliothèque graphique 2D libre, programmée en C. Elle prend en compte l'accélération matérielle de la carte graphique de l'ordinateur.
+ Cette bibliotheque permet la gestion graphique, mais aussi d'autres aspects multimédia, tel que le son.
+
+2) La bibliothèque SDL2 est utilisée avec plusieurs langages de programmation, pour la création d'applications, de jeux-vidéo, et autres.
+ Elle permet une gestion de l'affichages, avec notamment des vidéos, mais aussi du son, des périphériques comme le clavier et la souris.
+
+3) SDL2 fonctionne sur la plupart des ordinateurs/systèmes d'exploitation actuels, qu'il s'agisse de Windows, de Mac OS ou de Linux, ainsi qu'Android.
+ Elle peut aussi fonctionner sur certaines consoles de jeu portables.
+
+ Voici les étapes de la configuration d'un prijet SDL2 sous CodeBlocks
+	-D'abord, dans notre nouveau projet, nous allons nous placer dans dans l'onglet "Projects" de la fenêtre "management", pour faire un clic-droit sur la base de l'arborescence, portant le titre du projet.
+	-Dans le menu qui s'ouvre, il faut sélectionner "Build options..."; une nouvelle fenêtre s'ouvre.
+	-Dans le volet de gauche, nous vérifions que "Debug" est sélectionné, puis nous allons dans l'onglet "Linker settings"
+	-Pour la partie "Link libraries", il va falloir donner le chemin vers les emplacements des fichiers libSDL2main.a et libSDL2.dll.a (dans cet ordre), dans la bibliothèque correspondant à la version de CodeBlocks utilisée (32bits ou 64bits)
+	-Juste à côté, dans "other linker options", il faudra entrer manuellement "-lmingw32" (sans cottes)
+	-Passons ensuite à l'onglet "search directories", et le sous-onglet "Compiler"; ici, nous allons ajouter le chemin vers l'emplacement du dossier "include" de la bibliothèque
+	-Enfin, dans le sous-onglet "Linker", nous allons donner le chemin du dossier "lib", puis cliquer sur "ok" pour valider et fermer la fenêtre.
+
+4) SDL2 est une bibliothèque libre, téléchargeable directement sur le site libsdl.org, dans la partie SDL releases, Developpement Libraries. Dans notre cas, nous optons pour la version mingw.
+ Elle est à télécharger puis dézipper à l'emplacement voulu sur notre ordinateur.
+
+
+5) Par rapport à SDL1, SDL2 permet de prendre en compte l'accélération matérielle de la carte graphique pour le rendu.
+
+6) Pour utiliser la SDL2 dans notre projet, il faut procéder de la manière suivante:
+	
+	#include <stdio.h>
+	#include <stdlib.h>
+	#include <SDL2/SDL.h>		//inclusion de la librairie
+
+	SDL_Window *pWindow=NULL;	//création d'une variable pour la fenêtre
+	SDL_Renderer *pRenderer=NULL;
+
+	//prototype
+
+
+	int main(int argc, char *argv[])
+	{
+    		if(SDL_Init(SDL_INIT_EVERYTHING)!=0){
+
+        		SDL_Log("Unable to initialize SDL: %s", SDL_GetError());
+        		return 1;
+		}
+
+		return 0;
+    	}
+
+7)
